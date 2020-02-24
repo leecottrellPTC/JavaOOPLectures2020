@@ -14,27 +14,25 @@ public class BaseballGame {
 
     protected String team1;
     protected String team2;
-    protected int innings;
     protected int currentInning;
     protected int[][] score;
 
     public BaseballGame() {
     }
 
-    public BaseballGame(String team1, String team2, int innings, int currentInning, int[][] score) {
+    public BaseballGame(String team1, String team2,  int currentInning, int[][] score) {
         this.team1 = team1;
         this.team2 = team2;
-        this.innings = innings;
-        this.currentInning = currentInning;
+         this.currentInning = currentInning;
         this.score = score;
     }
 
-    public BaseballGame(String team1, String team2, int innings) {
+    public BaseballGame(String team1, String team2) {
         this.team1 = team1;
         this.team2 = team2;
-        this.innings = innings;
+        
         currentInning = 0;
-        this.score = new int[innings][2]; //9 innings, score 1 score 2
+        this.score = new int[9][2]; //9 innings, score 1 score 2
     }
 
     public String getTeam1() {
@@ -53,14 +51,6 @@ public class BaseballGame {
         this.team2 = team2;
     }
 
-    public int getInnings() {
-        return innings;
-    }
-
-    public void setInnings(int innings) {
-        this.innings = innings;
-    }
-
     public int getCurrentInning() {
         return currentInning;
     }
@@ -77,13 +67,20 @@ public class BaseballGame {
         this.score = score;
     }
 
-    public void setInningScore(int team1Score, int team2Score) {
+    public void setCurrentInningScore(int team1Score, int team2Score) {
         try {
             score[currentInning][0] = team1Score;
             score[currentInning][1] = team2Score;
             currentInning++;   //count the innings
         } catch (ArrayIndexOutOfBoundsException aibe) {
             System.out.println("Too many innings");
+        }
+    }
+    
+    public void setAnInningScore(int inning, int team1Score, int team2Score){
+        if(inning >=0 && inning < score.length){
+            score[inning][0] = team1Score;
+            score[inning][1] = team2Score;
         }
     }
 
