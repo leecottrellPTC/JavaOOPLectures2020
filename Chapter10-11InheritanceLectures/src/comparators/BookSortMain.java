@@ -37,14 +37,20 @@ public class BookSortMain {
     }
     
     public static void showArray(){
+        System.out.printf("%-20s%-10s %-7s%-6s\n","Title", "Author", "Price", "Pages");
         for(int x=0; x < bookArray.length; x++){
-            System.out.println(bookArray[x].toString());
+           System.out.printf("%-20s%-10s %5.2f %6d\n", 
+                   bookArray[x].getTitle(),bookArray[x].getAuthor(),
+                   bookArray[x].getCost(), bookArray[x].getPages());
         }
     }
     
     public static void showList(){
+        System.out.printf("%-20s%-10s %-7s%-6s\n","Title", "Author", "Price", "Pages");
         for(int x=0; x < bookList.size(); x++){
-            System.out.println(bookList.get(x).toString());
+             System.out.printf("%-20s%-10s %5.2f %6d\n", 
+                   bookList.get(x).getTitle(),bookList.get(x).getAuthor(),
+                   bookList.get(x).getCost(), bookList.get(x).getPages());
         }
     }
 
