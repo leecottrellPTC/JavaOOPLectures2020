@@ -68,7 +68,7 @@ public class MovieMonsterGUI extends javax.swing.JFrame {
         //loads the file from the package, 
         //if you added a package or folder, add it like resources//reel.jpg
         this.setIconImage(tools.getImage(getClass().getResource("reel.jpg")));
-        
+        this.setTitle("Movie Monster");
         loadAssets();
         showImage(blankImage);
     }
